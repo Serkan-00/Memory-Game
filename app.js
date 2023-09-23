@@ -80,7 +80,10 @@ createBoard()
 //summary of for loop - let i start from 0, and as long as i is less than 10, add one. So we basically want something to happen 10 times. 
 
 function flipCard () { 
-    console.log('clicked')
+    console.log(cardArray)
+    const cardId = this.getAttribute('data-id')
+    console.log(cardArray[cardId].name)
+    console.log('clicked', cardId)
 
 }
 
