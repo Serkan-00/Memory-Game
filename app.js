@@ -66,6 +66,7 @@ cardArray.sort(() => 0.5 - Math.random()) //shortcut to randomising cards
 
 const gridDisplay = document.querySelector('#grid') 
 const cardsChosen = []
+const cardsChosenIds = []
 
 function createBoard() { 
     for (let i = 0; i < cardArray.length; i++) {   
@@ -78,15 +79,25 @@ function createBoard() {
 }
 createBoard()
 
+function checkMatch() { 
+    const cards = document.querySelectorAll('img')
+    
+    console.log('Check for a match!')
+    if (cardsChosen[0] == cardsChosen[1]) { 
+        alert('You found a match!')
+        cards[]
+    }
+}
+
 //summary of for loop - let i start from 0, and as long as i is less than 10, add one. So we basically want something to happen 10 times. 
 
 function flipCard () { 
-    console.log(cardArray)
     const cardId = this.getAttribute('data-id')
     cardsChosen.push(cardArray[cardId].name)
-    console.log('clicked', cardId)
-    console.log(cardsChosen);
     this.setAttribute('src', cardArray[cardId].img)
+    if (cardsChosen.length === 2) { 
+        setTimeout( checkMatch, 500)
+    }
 
 }
 
