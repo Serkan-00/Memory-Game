@@ -71,11 +71,16 @@ function createBoard() {
         const card = document.createElement('img')  
         card.setAttribute('src', 'images/blank.png')
         card.setAttribute('data-id', i)
+        card.addEventListener('click', flipCard)
         gridDisplay.appendChild(card)
     }
 }
-
 createBoard()
 
-
 //summary of for loop - let i start from 0, and as long as i is less than 10, add one. So we basically want something to happen 10 times. 
+
+function flipCard () { 
+    console.log('clicked')
+
+}
+
