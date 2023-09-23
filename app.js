@@ -60,13 +60,14 @@ const cardArray = [
     },
 ]
 
-
 cardArray.sort(() => 0.5 - Math.random()) //shortcut to randomising cards 
+
+
 
 const gridDisplay = document.querySelector('#grid') 
 
 function createBoard() { 
-    for (let i = 0; i < 10; i++) {   
+    for (let i = 0; i < cardArray.length; i++) {   
         const card = document.createElement('img')  
         card.setAttribute('src', 'images/blank.png')
         card.setAttribute('data-id', i)
