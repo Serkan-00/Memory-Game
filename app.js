@@ -65,6 +65,7 @@ cardArray.sort(() => 0.5 - Math.random()) //shortcut to randomising cards
 
 
 const gridDisplay = document.querySelector('#grid') 
+const resultDisplay = document.querySelector('#result')
 let cardsChosen = []
 let cardsChosenIds = []
 const cardsWon = []
@@ -87,6 +88,8 @@ function checkMatch() {
     console.log(cards)
     console.log('Check for a match!')
     if (optionOneId == optionTwoId) { 
+        cards[optionOneId].setAttribute('src', 'images/blank.png')
+        cards[optionTwoId].setAttribute('src', 'images/blank.png')
         alert('You have clicked the same image!')
     } 
     if (cardsChosen[0] == cardsChosen[1]) { 
@@ -96,9 +99,19 @@ function checkMatch() {
         cards[optionOneId].removeEventListener('click', flipCard)
         cards[optionTwoId].removeEventListener('click', flipCard)
         cardsWon.push(cardsChosen)
+    } else {
+        cards[optionOneId].setAttribute('src', 'images/blank.png')
+        cards[optionTwoId].setAttribute('src', 'images/blank.png')
+        alert('Sorry try again!')
     }
+    
+    resultDisplay.textContent = cardsWon.length
     cardsChosen = []
     cardsChosenIds = []
+
+    if (cardsWon.length == cardArray.length/2) { 
+        resultDisplay.textContent = 'Congratulations you found them all!'
+    }
 }
 
 //summary of for loop - let i start from 0, and as long as i is less than 10, add one. So we basically want something to happen 10 times. 
